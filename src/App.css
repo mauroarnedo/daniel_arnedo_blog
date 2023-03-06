@@ -1,0 +1,47 @@
+nav {
+	background-color: #444444;
+	padding: 10px;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+nav li {
+	display: inline-block;
+	margin: 0 10px;
+}
+
+nav a {
+	color: #EDEDED;
+	text-decoration: none;
+}
+
+nav a:hover {
+	color: #DA0037;
+}
+
+header {
+	background: radial-gradient(ellipse at bottom, #DA0037 0%, red);
+	color: #EDEDED;
+	text-align: center;
+	padding: 50px;
+}
+
+main {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+footer {
+	width: 100%;
+	background-color: #444444;
+	color: #EDEDED;
+	text-align: center;
+	padding: 20px;
+	bottom: 0;
+}
