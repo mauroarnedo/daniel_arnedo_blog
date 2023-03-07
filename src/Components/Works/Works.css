@@ -1,13 +1,21 @@
+.works {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 .frame {
-    width: 50vw;
-    height: 100vh;
+    max-width: 300px;
+    max-height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .details {
-    max-width: 90%;
-    max-height: 90%;
     border: 5px solid #6a6a6a;
+    cursor: pointer;
 }
