@@ -53,12 +53,14 @@ const WorkDetails = () => {
                     <Loader />
                     :
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                        <div className="mb-5">
-                            <h3>Titulo: {work.title}</h3>
-                            {work.year ? <p>Año: {work.year}</p> : null}
-                            {work.technique ? <p>Tecnica: {work.technique}</p> : null}
-                            {work.measure ? <p>Medidas: {work.measure}cm</p> : null}
-                            {work.price ? <p>Precio: {work.price}</p> : null}
+                        <div className="container mb-5 p-5">
+                            <div className="text-center mb-5">
+                                <h3><strong>Titulo</strong>: {work.title}</h3><br />
+                                {work.year ? <p><strong>Año</strong>: {work.year}</p> : null}
+                                {work.technique ? <p><strong>Tecnica</strong>: {work.technique}</p> : null}
+                                {work.measure ? <p><strong>Medidas</strong>: {work.measure}cm</p> : null}
+                                {work.price ? <p><strong>Precio</strong>: {work.price}</p> : null}
+                            </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
                                     <p key={index}>{text}<br /></p>
