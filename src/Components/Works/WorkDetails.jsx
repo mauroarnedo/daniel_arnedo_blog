@@ -86,10 +86,9 @@ const WorkDetails = () => {
                                     {
                                         work.image.map((image, index) => {
                                             return (
-                                                <div>
+                                                <div key={index}>
                                                     <Image
                                                         thumbnail={true}
-                                                        key={index}
                                                         src={image}
                                                         alt={index}
                                                         className="image-detail"
