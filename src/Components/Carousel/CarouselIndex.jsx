@@ -14,6 +14,7 @@ export default function CarouselIndex() {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    swipeToSlide: true,
     autoplay: true,
     autoplaySpeed: 3000,
     adaptiveHeight: true,
