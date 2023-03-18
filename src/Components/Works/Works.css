@@ -48,6 +48,8 @@
     font-size: 1.5rem;
 }
 
-.text-device {
-    width: 75vw;
+@media screen and (max-width: 600px) {
+    .text-device {
+        width: 75vw;
+    }
 }
