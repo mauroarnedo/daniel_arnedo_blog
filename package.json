@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@glidejs/glide": "^3.6.0",
     "bootstrap": "^5.2.3",
     "crypto-js": "^4.1.1",
     "firebase": "^9.17.1",
@@ -17,7 +16,9 @@
     "react-bootstrap": "^2.7.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
-    "react-zoom-pan-pinch": "^3.0.2"
+    "react-slick": "^0.29.0",
+    "react-zoom-pan-pinch": "^3.0.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

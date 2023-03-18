@@ -1,34 +1,45 @@
-import Glide from '@glidejs/glide'
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useState } from "react";
 import { Context } from "../../Context/context";
+import { Image } from "react-bootstrap";
 import './CarouselIndex.css';
+import Slider from "react-slick";
+import Loader from "../Loader/Loader";
 
 export default function CarouselIndex() {
-  const { carousel } = useContext(Context);
-  const carouselRef = useRef(null)
-  useEffect(() => {
-    if (carousel.length) {
-      new Glide(carouselRef.current, {
-        type: "carousel",
-        perView: 1,
-        autoplay: 3000,
-      }).mount();
-    }
-  }, [carousel.length]);
+  const { carousel, loadSlide } = useContext(Context);
+  const settings = {
+    dots: true,
+    fade: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    adaptiveHeight: true,
+    pauseOnHover: true,
+    className: "carousel-container"
+};
 
   return (
-    <div className="glide glideDiv" ref={carouselRef}>
-      <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides flex align-items-center">
-          {carousel.map((e, index) => (
-            <li className="glide__slide" key={index}>
-              <div className='frame'>
-                <img className='details' src={e.image} alt={`imagen ${index}`} />
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Slider {...settings}>
+      {
+        !loadSlide ?
+        <Loader />
+        :
+        carousel.map((item, index) => {
+          return (
+            <div key={index}>
+                <Image
+                  thumbnail={true}
+                  className="carousel-image"
+                  src={item.image}
+                  alt={`imagen ${index}`}
+                />
+            </div>
+          )
+        })
+      }
+    </Slider>
   );
 }

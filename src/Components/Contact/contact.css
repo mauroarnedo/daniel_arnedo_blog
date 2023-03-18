@@ -1,4 +1,13 @@
+.contact-container {
+	padding: "50px";
+}
 form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 20px;
+}
+
+form div {
 	display: flex;
 	flex-direction: column;
 }

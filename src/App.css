@@ -15,12 +15,12 @@ nav li {
 	margin: 0 10px;
 }
 
-nav a {
+nav a, button {
 	color: #EDEDED;
 	text-decoration: none;
 }
 
-nav a:hover {
+nav a:hover, button:hover {
 	color: #DA0037;
 }
 
@@ -35,6 +35,7 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 20px
 }
 
 footer {
@@ -43,5 +44,4 @@ footer {
 	color: #EDEDED;
 	text-align: center;
 	padding: 20px;
-	bottom: 0;
 }
