@@ -18,7 +18,7 @@ const ZoomImage = ({ image, index, open, close }) => {
             >
                 <CloseButton className="closeButton" aria-label="Hide" onClick={close} />
                 <TransformComponent>
-                    <img src={image} alt={`imagen ${index}`} />
+                    <img src={image} alt={`imagen ${index}`} className="modal-image" />
                 </TransformComponent>
             </TransformWrapper>
         </Modal>
