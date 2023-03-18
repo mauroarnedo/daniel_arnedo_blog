@@ -63,7 +63,7 @@ const WorkDetails = () => {
                             </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
-                                    <p key={index}>{text}<br /></p>
+                                    <p className="text-device" key={index}>{text}<br /></p>
                                 ))
                                 :
                                 null}

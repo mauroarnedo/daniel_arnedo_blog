@@ -1,10 +1,9 @@
 .carousel-container {
-    width: auto;
+    max-width: 75vw;
     min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
 }
 
 .carousel-container div {
@@ -15,16 +14,15 @@
 .carousel-image {
     display: inline !important;
     max-height: 100%;
+    max-width: 75vw;
 }
 
-@media screen and (max-width: 768px) {
-    .carousel-image {
+@media screen and (max-width: 1200px) {
+    .carousel-container {
         max-width: 75vw;
+        min-height: 50vh;
     }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-    .carousel-image {
-        max-width: 75vw;
+    .carousel-container div {
+        width: 100%;
     }
 }
