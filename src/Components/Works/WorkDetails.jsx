@@ -53,7 +53,7 @@ const WorkDetails = () => {
                     <Loader />
                     :
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                        <div className="container mb-5 p-5">
+                        <div className="mb-5 pt-5 pb-5">
                             <div className="text-center mb-5">
                                 <h3><strong>Titulo</strong>: {work.title}</h3><br />
                                 {work.year ? <p><strong>Año</strong>: {work.year}</p> : null}
@@ -63,7 +63,7 @@ const WorkDetails = () => {
                             </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
-                                    <p className="text-device" key={index}>{text}<br /></p>
+                                    <p className="description-detail" key={index}>{text}<br /></p>
                                 ))
                                 :
                                 null}
