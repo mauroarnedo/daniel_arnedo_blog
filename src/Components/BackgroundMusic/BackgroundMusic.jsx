@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./BackgroundMusic.css";
+import Music from "../../Utils/Audio/PinkFloyd-BrainDamage.mp3";
+import UnmutedIcon from "../../Utils/Image/volumemax-svgrepo-com.svg";
+import MutedIcon from "../../Utils/Image/mute-svgrepo-com.svg";
 
 const BackgroundMusic = () => {
     const [muted, setMuted] = useState(false);
@@ -8,12 +11,12 @@ const BackgroundMusic = () => {
 
     return (
         <div>
-            <audio src="src\Utils\Audio\PinkFloyd-BrainDamage.mp3" autoPlay loop muted={muted}></audio>
+            <audio src={Music} autoPlay loop muted={muted}></audio>
             <button className="music-button" onClick={toggleMute}>
                 {muted ? 
-                    <img src="src\Utils\Image\volumemax-svgrepo-com.svg" alt="Unmute" width="30px" />
+                    <img src={UnmutedIcon} alt="Unmute" width="30px" />
                 : 
-                    <img src="src\Utils\Image\mute-svgrepo-com.svg" alt="Mute" width="50px" />
+                    <img src={MutedIcon} alt="Mute" width="50px" />
                 }
                 {/* {muted ? "Unmute" : "Mute"} */}
             </button>
