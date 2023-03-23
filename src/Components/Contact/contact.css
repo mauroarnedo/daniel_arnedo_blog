@@ -1,38 +1,7 @@
 .contact-container {
-	padding: "50px";
-}
-form {
+	width: 75vw;
 	display: flex;
 	flex-direction: column;
-	row-gap: 20px;
-}
-
-form div {
-	display: flex;
-	flex-direction: column;
-}
-
-label {
-	margin-bottom: 10px;
-}
-
-input,
-textarea {
-	padding: 10px;
-	margin-bottom: 20px;
-	border-radius: 5px;
-	border: none;
-}
-
-button[type="submit"] {
-	background-color: #DA0037;
-	color: #EDEDED;
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	cursor: pointer;
-}
-
-button[type="submit"]:hover {
-	background-color: #444444;
+	align-items: center;
+	justify-content: center;
 }

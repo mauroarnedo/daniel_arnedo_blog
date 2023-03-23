@@ -4,6 +4,7 @@ import { Image } from "react-bootstrap";
 import './CarouselIndex.css';
 import Slider from "react-slick";
 import Loader from "../Loader/Loader";
+import BackgroundMusic from "../BackgroundMusic/BackgroundMusic";
 
 export default function CarouselIndex() {
   const { carousel, loadSlide } = useContext(Context);
@@ -23,6 +24,8 @@ export default function CarouselIndex() {
 };
 
   return (
+    <>
+    <BackgroundMusic />
     <Slider {...settings}>
       {
         !loadSlide ?
@@ -42,5 +45,6 @@ export default function CarouselIndex() {
         })
       }
     </Slider>
+    </>
   );
 }
