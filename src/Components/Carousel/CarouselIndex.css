@@ -1,13 +1,14 @@
 .carousel-container {
-    max-width: 75vw;
+    max-width: 65vw;
     min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .carousel-container div {
-    width: 1000px;
+    width: 100%;
     height: auto;
 }
 
@@ -21,8 +22,5 @@
     .carousel-container {
         max-width: 75vw;
         min-height: 50vh;
-    }
-    .carousel-container div {
-        width: 100%;
     }
 }
