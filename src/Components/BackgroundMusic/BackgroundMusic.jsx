@@ -5,20 +5,29 @@ import UnmutedIcon from "../../Utils/Image/volumemax-svgrepo-com.svg";
 import MutedIcon from "../../Utils/Image/mute-svgrepo-com.svg";
 
 const BackgroundMusic = () => {
-    const [muted, setMuted] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    const toggleMute = () => setMuted(!muted);
+    const togglePlay = () => {
+        setIsPlaying(!isPlaying)
+
+        const audioElement = document.getElementById("audio");
+
+        if (isPlaying) {
+            audioElement.play();
+        } else {
+            audioElement.pause()
+        }
+    };
 
     return (
         <div>
-            <audio src={Music} autoPlay loop muted={muted}></audio>
-            <button className="music-button" onClick={toggleMute}>
-                {muted ? 
-                    <img src={UnmutedIcon} alt="Unmute" width="30px" />
+            <audio src={Music} id="audio" autoPlay loop></audio>
+            <button className="music-button" onClick={togglePlay}>
+                {isPlaying ? 
+                    <img src={MutedIcon} alt="Pause" width="50px" />
                 : 
-                    <img src={MutedIcon} alt="Mute" width="50px" />
+                    <img src={UnmutedIcon} alt="Play" width="30px" />
                 }
-                {/* {muted ? "Unmute" : "Mute"} */}
             </button>
         </div>
     )
