@@ -12,7 +12,7 @@ const BackgroundMusic = () => {
 
         const audioElement = document.getElementById("audio");
 
-        if (isPlaying) {
+        if (!isPlaying) {
             audioElement.play();
         } else {
             audioElement.pause()
@@ -21,12 +21,12 @@ const BackgroundMusic = () => {
 
     return (
         <div>
-            <audio src={Music} id="audio" autoPlay loop></audio>
+            <audio src={Music} id="audio" loop></audio>
             <button className="music-button" onClick={togglePlay}>
                 {isPlaying ? 
-                    <img src={MutedIcon} alt="Pause" width="50px" />
+                    <img src={UnmutedIcon} alt="Pause" width="30px" />
                 : 
-                    <img src={UnmutedIcon} alt="Play" width="30px" />
+                    <img src={MutedIcon} alt="Play" width="50px" />
                 }
             </button>
         </div>
