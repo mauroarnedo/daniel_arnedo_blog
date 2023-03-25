@@ -53,13 +53,17 @@ const WorkDetails = () => {
                     <Loader />
                     :
                     <div className="d-flex flex-column align-items-center justify-content-center">
-                        <div className="mb-5 pt-5 pb-5">
+                        <div className="pt-5 pb-5">
                             <div className="text-center mb-5">
                                 <h3><strong>Titulo</strong>: {work.title}</h3><br />
                                 {work.year ? <p><strong>Año</strong>: {work.year}</p> : null}
                                 {work.technique ? <p><strong>Tecnica</strong>: {work.technique}</p> : null}
                                 {work.measure ? <p><strong>Medidas</strong>: {work.measure}cm</p> : null}
-                                {work.price ? <p><strong>Precio</strong>: {work.price}</p> : null}
+                                {work.price ?
+                                    <p><strong>Precio</strong>: {work.price}USD</p>
+                                    : (work.privateCollection ?
+                                        <p>{work.privateCollection}</p>
+                                        : null)}
                             </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
@@ -72,6 +76,7 @@ const WorkDetails = () => {
                             typeof work.image === 'string' ?
                                 <div>
                                     <Image
+                                        thumbnail={true}
                                         src={work.image}
                                         alt={work.title}
                                         onClick={() => openImage(0)}
@@ -86,14 +91,23 @@ const WorkDetails = () => {
                                     {
                                         work.image.map((image, index) => {
                                             return (
-                                                <div key={index}>
+                                                <div key={index} className="text-center">
                                                     <Image
                                                         thumbnail={true}
-                                                        src={image}
+                                                        src={image.image}
                                                         alt={index}
-                                                        className="image-detail"
+                                                        className="image-detail mb-3"
                                                         onClick={() => openImage(index)}
                                                     />
+                                                    {image.title ? <h4>{image.title}</h4> : null}
+                                                    {image.year ? <p><strong>Año</strong>: {image.year}</p> : null}
+                                                    {image.technique ? <p><strong>Tecnica</strong>: {image.technique}</p> : null}
+                                                    {image.measure ? <p><strong>Medidas</strong>: {image.measure}cm</p> : null}
+                                                    {image.price ?
+                                                        <p>Precio: {image.price}USD</p>
+                                                        : (image.privateCollection ?
+                                                            <p>{image.privateCollection}</p>
+                                                            : null)}
                                                     {selectedImageIndex === index && (
                                                         <ZoomImage image={image} index={index} open={show} close={closeImage} />
                                                     )}

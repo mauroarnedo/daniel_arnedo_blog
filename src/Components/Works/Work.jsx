@@ -4,7 +4,7 @@ import './Works.css';
 
 
 const Work = ({ work }) => {
-    const image = typeof work?.image === "string" ? work.image : work.image[0];
+    const image = typeof work?.image === "string" ? work.image : work.image[0].image;
 
     return (
         <div>

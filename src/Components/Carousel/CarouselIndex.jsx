@@ -9,7 +9,6 @@ import BackgroundMusic from "../BackgroundMusic/BackgroundMusic";
 export default function CarouselIndex() {
   const { carousel, loadSlide } = useContext(Context);
   const settings = {
-    dots: true,
     fade: true,
     infinite: true,
     speed: 1000,
