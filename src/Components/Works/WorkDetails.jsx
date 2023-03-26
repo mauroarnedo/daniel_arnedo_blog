@@ -12,6 +12,7 @@ const WorkDetails = () => {
     const [load, setLoad] = useState(false);
     const [show, setShow] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null)
+    const [isEnabled, setIsEnabled] = useState(true);
 
     const fetchOneWork = () => {
         getDoc(doc(db, "works", id))
@@ -25,6 +26,7 @@ const WorkDetails = () => {
                         measure: docSnap.get("measure"),
                         price: docSnap.get("price"),
                         description: docSnap.get("description"),
+                        privateCollection: docSnap.get("privateCollection"),
                         image: docSnap.get("image"),
                         video: docSnap.get("video")
                     })
@@ -37,9 +39,26 @@ const WorkDetails = () => {
     }
     useEffect(fetchOneWork, [id])
 
+    const handleResize = () => {
+        if (window.innerWidth < 750) {
+            setIsEnabled(false);
+        } else {
+            setIsEnabled(true);
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        handleResize();
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     const openImage = (index) => {
-        setSelectedImageIndex(index);
-        setShow(true);
+        if (isEnabled) {
+            setSelectedImageIndex(index);
+            setShow(true);
+        }
     };
     const closeImage = () => {
         setSelectedImageIndex(null);
@@ -61,9 +80,10 @@ const WorkDetails = () => {
                                 {work.measure ? <p><strong>Medidas</strong>: {work.measure}cm</p> : null}
                                 {work.price ?
                                     <p><strong>Precio</strong>: {work.price}USD</p>
-                                    : (work.privateCollection ?
-                                        <p>{work.privateCollection}</p>
-                                        : null)}
+                                    :
+                                    work.privateCollection ?
+                                        <p><strong>{work.privateCollection}</strong></p>
+                                        : null}
                             </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
@@ -109,7 +129,7 @@ const WorkDetails = () => {
                                                             <p>{image.privateCollection}</p>
                                                             : null)}
                                                     {selectedImageIndex === index && (
-                                                        <ZoomImage image={image} index={index} open={show} close={closeImage} />
+                                                        <ZoomImage image={image.image} index={index} open={show} close={closeImage} />
                                                     )}
                                                 </div>
                                             )

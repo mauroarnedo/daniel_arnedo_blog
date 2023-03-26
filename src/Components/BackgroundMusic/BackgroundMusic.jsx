@@ -24,9 +24,9 @@ const BackgroundMusic = () => {
             <audio src={Music} id="audio" loop></audio>
             <button className="music-button" onClick={togglePlay}>
                 {isPlaying ? 
-                    <img src={UnmutedIcon} alt="Pause" width="30px" />
+                    <img className="unmuted" src={UnmutedIcon} alt="Pause" />
                 : 
-                    <img src={MutedIcon} alt="Play" width="50px" />
+                    <img className="muted" src={MutedIcon} alt="Play" />
                 }
             </button>
         </div>
