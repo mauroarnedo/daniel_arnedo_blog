@@ -9,7 +9,7 @@ export default function Works() {
   const categories = ["gallery", "falSeries", "tapir"];
 
   return (
-    <div>
+    <div className="works-wrapper">
       <nav>
         <ul>
           {

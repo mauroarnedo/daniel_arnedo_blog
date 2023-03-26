@@ -47,7 +47,7 @@ const WorkDetails = () => {
     }
 
     return (
-        <div className="d-flex align-items-center justify-content-center w-100">
+        <div className="d-flex align-items-center justify-content-center works-wrapper">
             {
                 !load ?
                     <Loader />
@@ -117,13 +117,12 @@ const WorkDetails = () => {
                                     }
                                 </div>
                         }
-                        <div className="d-flex flex-wrap align-items-center justify-content-center gap-5 mt-5 w-75">
+                        <div className="d-flex flex-wrap align-items-center justify-content-center gap-5 mt-5 mb-5">
                             {
                                 work.video && work.video.map((video, index) => (
                                     <iframe
                                         key={index}
-                                        width="560"
-                                        height="315"
+                                        className="video-detail"
                                         src={video}
                                         allowFullScreen
                                     >

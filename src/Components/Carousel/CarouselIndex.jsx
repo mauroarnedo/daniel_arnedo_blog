@@ -19,7 +19,15 @@ export default function CarouselIndex() {
     autoplaySpeed: 3000,
     adaptiveHeight: true,
     pauseOnHover: true,
-    className: "carousel-container"
+    className: "carousel-container",
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          arrows: false
+        }
+      }
+    ]
 };
 
   return (
