@@ -1,5 +1,6 @@
-import { useContext, useState } from "react";
-import { Context } from "../../Context/context";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../Utils/Firebase/firebase";
 import { Image } from "react-bootstrap";
 import './CarouselIndex.css';
 import Slider from "react-slick";
@@ -7,7 +8,23 @@ import Loader from "../Loader/Loader";
 import BackgroundMusic from "../BackgroundMusic/BackgroundMusic";
 
 export default function CarouselIndex() {
-  const { carousel, loadSlide } = useContext(Context);
+  const [carousel, setCarousel] = useState([])
+  const [load, setLoad] = useState(false);
+
+  const carouselCollection = () => {
+    getDocs(collection(db, "carousel"))
+      .then((res) => {
+        const docs = res.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
+        setCarousel(docs);
+        setLoad(true);
+      })
+      .catch(error => console.log(error))
+  };
+
+  useEffect(carouselCollection, []);
+
+
   const settings = {
     fade: true,
     infinite: true,
@@ -28,30 +45,30 @@ export default function CarouselIndex() {
         }
       }
     ]
-};
+  };
 
   return (
     <>
-    <BackgroundMusic />
-    <Slider {...settings}>
-      {
-        !loadSlide ?
-        <Loader />
-        :
-        carousel.map((item, index) => {
-          return (
-            <div key={index}>
-                <Image
-                  thumbnail={true}
-                  className="carousel-image"
-                  src={item.image}
-                  alt={`imagen ${index}`}
-                />
-            </div>
-          )
-        })
-      }
-    </Slider>
+      <BackgroundMusic />
+      <Slider {...settings}>
+        {
+          !load ?
+            <Loader />
+            :
+            carousel.map((item, index) => {
+              return (
+                <div key={index}>
+                  <Image
+                    thumbnail={true}
+                    className="carousel-image"
+                    src={item.image}
+                    alt={`imagen ${index}`}
+                  />
+                </div>
+              )
+            })
+        }
+      </Slider>
     </>
   );
 }

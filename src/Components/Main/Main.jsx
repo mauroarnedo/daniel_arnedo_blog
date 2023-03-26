@@ -1,9 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// import CarouselIndex from "../Carousel/CarouselIndex";
-// import About from "../About/About";
-// import Works from "../Works/Works";
-// import Contact from "../Contact/Contact";
-// import WorkDetails from "../Works/WorkDetails";
 import { lazy, Suspense } from "react";
 import Delay from "../Delay/Delay";
 import Loader from "../Loader/Loader";

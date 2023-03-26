@@ -1,5 +1,5 @@
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { CloseButton, Modal } from "react-bootstrap";
+import { CloseButton, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import './Works.css';
 
 const ZoomImage = ({ image, index, open, close }) => {
@@ -17,7 +17,16 @@ const ZoomImage = ({ image, index, open, close }) => {
                 centerZoomedOut={true}
             >
                 <TransformComponent>
-                    <CloseButton className="closeButton" aria-label="Hide" onClick={close} />
+                    <OverlayTrigger
+                        placement="right"
+                        overlay={
+                            <Tooltip>
+                                <strong>Cerrar</strong>
+                            </Tooltip>
+                        }
+                    >
+                        <CloseButton className="closeButton" aria-label="Hide" onClick={close} />
+                    </OverlayTrigger>
                     <img src={image} alt={`imagen ${index}`} className="modal-image" />
                 </TransformComponent>
             </TransformWrapper>

@@ -15,14 +15,14 @@ export default function adminContextProvider(props) {
 
     const addWork = (work) => {
         addDoc(collection(db, "works"), work)
-            .then(res => console.log(res.id))
-            .catch(error => console.log(error))
+            .then()
+            .catch()
     }
 
     const updateWork = (work) => {
         updateDoc(collection(db, "works", work.id), work)
             .then(() => console.log("Trabajo actualizado"))
-            .catch(error => console.log(error))
+            .catch()
     }
 
     const addImage = (uploadPreset, image) => {
@@ -34,14 +34,13 @@ export default function adminContextProvider(props) {
             method: 'POST',
             body: FormData
         }).then((res) => {
-            console.log(res.data);
             // addDoc(collection(db, "carousel"), { image: res.data })
         })
     }
     /**
      * 
      * @param {*} data
-     * FALTAN AGREGAR VARIABLES DE ENTORNO 
+     * FALTAN VARIABLES 
      * @returns 
      */
     const deleteImage = (data) => {
@@ -64,7 +63,6 @@ export default function adminContextProvider(props) {
             return response.json();
           })
           .catch(error => {
-            console.error('Error deleting file:', error);
             throw error;
           });
     }
