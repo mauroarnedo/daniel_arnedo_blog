@@ -78,12 +78,6 @@ const WorkDetails = () => {
                                 {work.year ? <p><strong>Año</strong>: {work.year}</p> : null}
                                 {work.technique ? <p><strong>Tecnica</strong>: {work.technique}</p> : null}
                                 {work.measure ? <p><strong>Medidas</strong>: {work.measure}cm</p> : null}
-                                {work.price ?
-                                    <p><strong>Precio</strong>: {work.price}USD</p>
-                                    :
-                                    work.privateCollection ?
-                                        <p><strong>{work.privateCollection}</strong></p>
-                                        : null}
                             </div>
                             {work.description ?
                                 work.description.split(" . ").map((text, index) => (
@@ -94,7 +88,7 @@ const WorkDetails = () => {
                         </div>
                         {
                             typeof work.image === 'string' ?
-                                <div>
+                                <div className="text-center">
                                     <Image
                                         thumbnail={true}
                                         src={work.image}
@@ -102,6 +96,12 @@ const WorkDetails = () => {
                                         onClick={() => openImage(0)}
                                         className="image-detail"
                                     />
+                                    {work.price ?
+                                        <p className="mt-3"><strong>Precio</strong>: {work.price}USD</p>
+                                        :
+                                        work.privateCollection ?
+                                            <p className="mt-3"><strong>{work.privateCollection}</strong></p>
+                                            : null}
                                     {selectedImageIndex === 0 && (
                                         <ZoomImage image={work.image} index={0} open={show} close={closeImage} />
                                     )}
