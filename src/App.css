@@ -1,6 +1,41 @@
+:root {
+	--bg-color: #171717;
+	--header-color: #DA0037;
+	--nav-footer-color: #444444;
+	--txt-color: white;
+}
+
+.light_mode {
+	--bg-color: #EDEDED;
+	--header-color: #DF2E38;
+	--nav-footer-color: #DFDFDF;
+	--txt-color: #171717;
+}
+
+body {
+	background-color: var(--bg-color) !important;
+	margin: 0;
+	font-family: 'Poppins', sans-serif !important;
+	color: var(--txt-color) !important;
+	transition: all 0.5s;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Oswald', sans-serif;
+}
+
 nav {
-	background-color: #444444;
+	background-color: var(--nav-footer-color);
 	padding: 10px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 nav ul {
@@ -15,18 +50,20 @@ nav li {
 	margin: 0 10px;
 }
 
-nav a, button {
-	color: #EDEDED;
+nav a,
+button {
+	color: var(--txt-color);
 	text-decoration: none;
 }
 
-nav a:hover, button:hover {
-	color: #DA0037;
+nav a:hover,
+button:hover {
+	color: var(--header-color);
 }
 
 header {
-	background: radial-gradient(ellipse at bottom, #DA0037 0%, red);
-	color: #EDEDED;
+	background: radial-gradient(ellipse at bottom, var(--header-color) 0%, red);
+	color: var(--txt-color);
 	text-align: center;
 	padding: 50px 0;
 }
@@ -38,8 +75,35 @@ main {
 }
 
 footer {
-	background-color: #444444;
-	color: #EDEDED;
+	background-color: var(--nav-footer-color);
+	color: var(--txt-color);
 	text-align: center;
 	padding: 20px 0;
+}
+
+.toggle-button {
+	position: absolute;
+	top: 4px;
+	right: 30px;
+	color: var(--txt-color);
+	border: 0;
+	background-color: transparent;
+	font-size: 20px;
+	cursor: pointer;
+	transition: all 0.4s;
+}
+
+.light_mode .toggle-button {
+	transform: rotate(360deg);
+}
+
+@media screen and (max-width: 600px) {
+	nav {
+		flex-direction: column;
+	}
+
+	.toggle-button {
+		margin-top: 2px;
+		position: static;
+	}
 }

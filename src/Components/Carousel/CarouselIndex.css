@@ -18,10 +18,15 @@
     max-height: 100%;
 }
 
+.light_mode .carousel-image {
+    border: 3px solid #171717;
+}
+
 @media screen and (max-width: 1200px) {
     .carousel-container {
         max-width: 90vw;
     }
+
     .carousel-container div {
         width: 90vw;
         max-height: 50vh;
